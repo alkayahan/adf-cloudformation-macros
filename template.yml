@@ -15,7 +15,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Runtime: python3.7
-      CodeUri: lambda
+      CodeUri: src/explode/
       Handler: explode.handler
 
   # Cloudformation Macros (MAC)
