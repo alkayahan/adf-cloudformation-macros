@@ -12,6 +12,5 @@ phases:
   build:
     commands:
       - bash adf-build/helpers/package_transform.sh
-      
 artifacts:
   files: '**/*'
