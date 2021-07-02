@@ -1,0 +1,26 @@
+# (c) 2021 Amazon Web Services, Inc. or its affiliates. All Rights Reserved.
+# This AWS Content is provided subject to the terms of the AWS Customer
+# Agreement available at https://aws.amazon.com/agreement or other written
+# agreement between Customer and Amazon Web Services, Inc.
+#
+#
+# Author: Alan Huseyin Kayahan <alkayaha@amazon.com>
+
+AWSTemplateFormatVersion: 2010-09-09
+Transform: AWS::Serverless-2016-10-31
+
+Resources:
+  # Macro Functions (FUN)
+  rFUNexplode:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: python3.7
+      CodeUri: lambda
+      Handler: explode.handler
+
+  # Cloudformation Macros (MAC)
+  rMACexplode:
+    Type: AWS::CloudFormation::Macro
+    Properties:
+      Name: Explode
+      FunctionName: !GetAtt rFUNexplode.Arn
